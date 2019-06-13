@@ -11,19 +11,29 @@ class Person{
 
 }
 class Instructor extends Person{
-    constructor(instructorBaseClass){
-        super(this, instructorBaseClass);
+constructor(instructorBaseClass){
+        super(instructorBaseClass);
         this.specialty = instructorBaseClass.specialty;
         this.favLanguage = instructorBaseClass.favLanguage;
         this.catchPhrase = instructorBaseClass.catchPhrase;
     }
     demo(subject){
-        return `'Today we are learning about ${subject}' where subject is the param passed in.`;
+        return `Today we are learning about ${subject} where subject is the param passed in.`
     }
     grade(student,subject){
-        return `'${student.name} receives a perfect score on ${subject}'`
+        return `${student.name} receives a perfect score on ${subject}`
     }
 }
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+});
+console.log(fred.demo());
+
 class Student extends Person{
     constructor(studentBaseClass){
         super(this, studentBaseClass);
