@@ -32,11 +32,12 @@ const fred = new Instructor({
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
 });
-console.log(fred.demo());
+
+
 
 class Student extends Person{
     constructor(studentBaseClass){
-        super(this, studentBaseClass);
+        super(studentBaseClass);
         this.previousBackground = studentBaseClass.previousBackground;
         this.className = studentBaseClass.className;
         this.favSubject = studentBaseClass.favSubject;
@@ -51,6 +52,16 @@ class Student extends Person{
         return `${student.name} has begun sprint challenge on ${subject}`;
     }
 }
+const carlos = new Student({
+    name: 'Carlos',
+    location: 'Houston',
+    age: 22,
+    previousBackground: 'Sharptown High School',
+    className: 'WEB21',
+    favSubject: 'JavaScript'
+
+})
+
 class ProjectManagers extends Instructor{
     constructor(projectManagerInstructorBaseClass){
         super(this, projectManagerInstructorBaseClass);
@@ -64,3 +75,5 @@ class ProjectManagers extends Instructor{
         return `${name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+console.log(fred.grade(carlos));
+console.log(fred.demo());

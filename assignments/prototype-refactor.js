@@ -44,7 +44,7 @@ class CharacterStats extends GameObject{
 
 }
   // Sets up inheritance with GameObject  
-
+  
   /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
@@ -56,7 +56,7 @@ class CharacterStats extends GameObject{
   */
   class Humanoid extends CharacterStats{
     constructor(humanoidOptions) {
-        super(this, humanoidOptions);
+        super(humanoidOptions);
         this.team = humanoidOptions.team;
         this.weapons = humanoidOptions.weapons;
         this.language = humanoidOptions.language;
