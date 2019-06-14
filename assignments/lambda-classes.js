@@ -34,7 +34,6 @@ const fred = new Instructor({
 });
 
 
-
 class Student extends Person{
     constructor(studentBaseClass){
         super(studentBaseClass);
@@ -42,13 +41,13 @@ class Student extends Person{
         this.className = studentBaseClass.className;
         this.favSubject = studentBaseClass.favSubject;
     }
-    listsSubjects(){
-        return `${studentBaseClass.favSubject} is ${baseClass.name} favorite subject`;
+    listsSubjects(student, name){
+        return `${student.favSubject} is ${student.name} favorite subject`;
     }
-    PRAssignment(subject){
+    PRAssignment(student, subject){
         return `${student.name} has submitted a PR for ${subject}`;
     }
-    sprintChallenge(){
+    sprintChallenge(student, subject){
         return `${student.name} has begun sprint challenge on ${subject}`;
     }
 }
@@ -64,16 +63,29 @@ const carlos = new Student({
 
 class ProjectManagers extends Instructor{
     constructor(projectManagerInstructorBaseClass){
-        super(this, projectManagerInstructorBaseClass);
+        super(projectManagerInstructorBaseClass);
         this.gradeClass = projectManagerInstructorBaseClass.gradeClass;
         this.favInstructor = projectManagerInstructorBaseClass.favInstructor;
     }
-    standUp(){
-        return `${name} announces to ${channel}, @channel standy times!`
+    standUp(ProjectManagers, channel){
+        return `${ProjectManagers.name} announces to ${channel}, @channel standy times!`
     }
-    debugsCode(student, subject){
-        return `${name} debugs ${student.name}'s code on ${subject}`;
+    debugsCode(ProjectManagers,student, subject){
+        return `${ProjectManagers.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+const dan = new ProjectManagers({
+    name: 'Dan',
+    location: 'USA',
+    age: 'unknown',
+    gradClassName: 'CS1',
+    favInstructor: 'Sean',
+})
+
 console.log(fred.grade(carlos));
 console.log(fred.demo());
+console.log(carlos.listsSubjects(carlos));
+console.log(carlos.PRAssignment(carlos))
+console.log(carlos.sprintChallenge(carlos));
+console.log(dan.standUp(dan));
+console.log(dan.debugsCode(dan,carlos));
